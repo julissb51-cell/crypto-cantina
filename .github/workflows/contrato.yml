@@ -1,0 +1,19 @@
+name: Contrato
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32v1-none
+      - name: Tests del contrato
+        run: cargo test -p libro-visitas
+      - name: Compilar a wasm
+        run: cargo build -p libro-visitas --target wasm32v1-none --release
