@@ -1,0 +1,27 @@
+version: 2
+
+# Configuración de Scaffold Stellar para la Cripto Cantina
+project:
+  # Código fuente de los contratos Rust/Soroban
+  contracts-dir: contracts
+  # Clientes TypeScript generados, importados como `@stellar-scaffold/app-lib/clients`
+  clients-dir: app-lib/clients
+
+networks:
+  # Red local con el contenedor Stellar Quickstart (`stellar container start`)
+  local:
+    accounts: [me]
+
+  # Testnet: el contrato ya está desplegado (ver `contracts` abajo)
+  testnet:
+    accounts: [cantinero]
+
+contracts:
+  libro-visitas:
+    networks:
+      local:
+        type: workspace
+        source: libro-visitas
+      testnet:
+        type: contract
+        source: CONTRACT_ID_TESTNET
