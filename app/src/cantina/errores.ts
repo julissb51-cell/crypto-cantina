@@ -4,6 +4,11 @@ const MENSAJES: Record<string, string> = {
 		"Esta dirección ya firmó el libro. Solo se permite una firma por dirección.",
 	MensajeVacio: "El mensaje no puede estar vacío.",
 	MensajeLargo: "El mensaje es demasiado largo.",
+	// El cliente generado usa los comentarios del enum `Error` como mensaje
+	"Esta dirección ya firmó el libro.":
+		"Esta dirección ya firmó el libro. Solo se permite una firma por dirección.",
+	"El mensaje está vacío.": "El mensaje no puede estar vacío.",
+	"El mensaje supera el largo máximo.": "El mensaje es demasiado largo.",
 }
 const CODIGOS = ["", "YaFirmo", "MensajeVacio", "MensajeLargo"]
 
@@ -17,10 +22,11 @@ export function explicarError(error: unknown): string {
 				: String(error)
 
 	// El cliente generado devuelve el nombre del error; la red, el código numérico
-	if (MENSAJES[texto]) return MENSAJES[texto]
+	const directo = MENSAJES[texto]
+	if (directo) return directo
 	const codigo = /Error\(Contract, #(\d+)\)/.exec(texto)?.[1]
 	const nombre = codigo ? CODIGOS[Number(codigo)] : undefined
-	if (nombre) return MENSAJES[nombre]
+	if (nombre && MENSAJES[nombre]) return MENSAJES[nombre]
 	if (/reject|declin|cancel/i.test(texto))
 		return "Cancelaste la firma en tu billetera."
 	if (/account not found|does not exist|404/i.test(texto))

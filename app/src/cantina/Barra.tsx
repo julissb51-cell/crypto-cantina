@@ -53,7 +53,7 @@ export const BotonBilletera = () => {
 				</button>
 			) : (
 				<span className="billetera-saldo">
-					{Number(balances.xlm.balance).toFixed(2)} XLM
+					{Number(balances.xlm?.balance ?? 0).toFixed(2)} XLM
 				</span>
 			)}
 			<button

@@ -24,4 +24,4 @@ contracts:
         source: libro-visitas
       testnet:
         type: contract
-        source: CONTRACT_ID_TESTNET
+        source: CAHUFFLIBRI2LJGVSVAAHPLSKYP2P64WFCOYMEY66RFGXHEIHHCA4GFB

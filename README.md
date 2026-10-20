@@ -11,13 +11,15 @@ página por página.
 | ------------------------------------------------ | ------------------------------------------------ |
 | ![Libro cerrado](docs/captura-libro-cerrado.png) | ![Libro abierto](docs/captura-libro-abierto.png) |
 
+<p align="center"><img src="docs/captura-movil.png" alt="El libro en móvil" width="300" /></p>
+
 ## Contrato en testnet
 
-|                     |                                                                                               |
-| ------------------- | --------------------------------------------------------------------------------------------- |
-| **ID del contrato** | `CONTRACT_ID_TESTNET`                                                                         |
-| **Red**             | Stellar Testnet (`Test SDF Network ; September 2015`)                                         |
-| **Explorador**      | [Ver en Stellar Expert](https://stellar.expert/explorer/testnet/contract/CONTRACT_ID_TESTNET) |
+|                     |                                                                                                                                    |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **ID del contrato** | `CAHUFFLIBRI2LJGVSVAAHPLSKYP2P64WFCOYMEY66RFGXHEIHHCA4GFB`                                                                         |
+| **Red**             | Stellar Testnet (`Test SDF Network ; September 2015`)                                                                              |
+| **Explorador**      | [Ver en Stellar Expert](https://stellar.expert/explorer/testnet/contract/CAHUFFLIBRI2LJGVSVAAHPLSKYP2P64WFCOYMEY66RFGXHEIHHCA4GFB) |
 
 ## Qué hace
 
@@ -91,7 +93,7 @@ cd crypto-cantina
 # 1. Dependencias del frontend
 npm install
 
-# 2. Tests del contrato
+# 2. Tests del contrato (6 tests)
 cargo test
 
 # 3. Generar el cliente TypeScript del contrato desplegado en testnet
@@ -103,6 +105,12 @@ npm run dev --workspace app -- --port 5173
 
 Abre <http://localhost:5173>, conecta tu billetera en Testnet, fondea la cuenta
 con Friendbot si hace falta y firma el libro.
+
+Pruebas de humo del frontend con Playwright (levantan Vite solas):
+
+```bash
+cd e2e && npx playwright test
+```
 
 > `npm start` corre además `stellar scaffold watch`, que redespliega en la red
 > local (necesita Docker y `stellar container start`). Para usar el contrato de

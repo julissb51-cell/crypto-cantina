@@ -44,6 +44,8 @@ export default defineConfig({
 		use: {
 			...devices["Desktop Chrome"],
 			baseURL: `http://localhost:${t.port}`,
+			// Opcional: usar un Chromium ya instalado (PW_CHROMIUM_PATH=/ruta/chromium)
+			launchOptions: { executablePath: process.env.PW_CHROMIUM_PATH },
 		},
 	})),
 	webServer: targets.map((t) => ({
