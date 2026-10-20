@@ -5,6 +5,8 @@ import wasm from "vite-plugin-wasm"
 
 // https://vite.dev/config/
 export default defineConfig({
+	// Ruta base al publicar en GitHub Pages: BASE_PATH=/crypto-cantina/ npm run build
+	base: process.env.BASE_PATH ?? "/",
 	plugins: [
 		react(),
 		nodePolyfills({

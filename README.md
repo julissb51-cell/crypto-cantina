@@ -5,6 +5,8 @@ mensaje corto y lo firmas en la **testnet de Stellar**. Un contrato Soroban
 guarda la firma y la página muestra todas las firmas en un libro que se hojea
 página por página.
 
+**🔗 Pruébalo en vivo: https://julissb51-cell.github.io/crypto-cantina/**
+
 ![Portada de la Cripto Cantina](docs/captura-portada.png)
 
 | Libro cerrado                                    | Libro abierto                                    |
@@ -105,6 +107,8 @@ npm run dev --workspace app -- --port 5173
 
 Abre <http://localhost:5173>, conecta tu billetera en Testnet, fondea la cuenta
 con Friendbot si hace falta y firma el libro.
+
+Para publicar en GitHub Pages: `BASE_PATH=/crypto-cantina/ npm run build --workspace app` y subir `app/dist` a la rama `gh-pages`.
 
 Pruebas de humo del frontend con Playwright (levantan Vite solas):
 
